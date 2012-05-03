@@ -1,0 +1,46 @@
+This repository contains a simple Python module, which can control a seven segment display attached to a Raspberry Pi.
+
+I used [http://www.coolcomponents.co.uk/catalog/segment-display-p-466.html the following 7 segment display] ([http://www.coolcomponents.co.uk/catalog/resources/7segled.jpg datasheet here]), and wired it up in the following way:
+
+{| class="wikitable"
+! Raspberry Pi Pin !! 7 segment display pins
+|-
+| 1  || 3,5,11,16, via a resistor (3.3V)
+|-
+|11 (GPIO 0) || 1 (segment a)
+|-
+|12 || 14 (b)
+|-
+|13 || 12 (c)
+|-
+|15 || 10 (d)
+|-
+|16 || 4 (e)
+|-
+|18 || 2 (f)
+|-
+|22 || 13 (g)
+|}
+
+Example usage:
+<source lang="python">% sudo python # so that you can access the GPIO pins
+>>> from sevensegment import *
+>>> import time
+>>> s=sevensegment.SevenSegmentDisplay()
+>>> s.set(1)
+>>> for i in range(0, 10):
+...     print("Displaying %d" % i)
+...     s.set(i)
+...     time.sleep(1)
+... 
+Displaying 0
+Displaying 1
+Displaying 2
+Displaying 3
+Displaying 4
+Displaying 5
+Displaying 6
+Displaying 7
+Displaying 8
+Displaying 9
+>>> s.off()</source>
