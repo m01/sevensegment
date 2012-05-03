@@ -23,7 +23,7 @@ I used [http://www.coolcomponents.co.uk/catalog/segment-display-p-466.html the f
 |}
 
 Example usage:
-<code>
+<pre>
 % sudo python # so that you can access the GPIO pins
 >>> from sevensegment import *
 >>> import time
@@ -45,4 +45,4 @@ Displaying 7
 Displaying 8
 Displaying 9
 >>> s.off()
-</code>
+</pre>
